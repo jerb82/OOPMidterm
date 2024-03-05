@@ -1,3 +1,3 @@
 OOP 🥑
-# I am still working Plz do not judge lana 
+# I am judging Jona
   `std::cout study`
