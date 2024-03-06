@@ -30,14 +30,27 @@ Software Design - Definition, the two types of design (so far), where they come 
 * Security
 
 
-### Algorithmic Decomposition
+### Algorithmic Decomposition  
+
+Decomposition:
+Breaking a complex problem or system into a collection of smaller parts  
+
+<mark>Algorithmic Decomposition</mark>:
+Breaking a complex *algorithm* into a collection of smaller algorithms  
+**How?**  
+> Start with the initial algorithm and apply algorithm decomposition recursively  
+With good design, smaller algorithms improve *modularity* which improves *maintainabiltiy* and *reusability*  
+Possible tradeoff: *efficiency*
+
+**A lower-level approach is needed for OOP**
 
 ---
 ### Structure Diagram
-
+![rainfall report structure chart](structurechart.png)
+### check slide 7 + of algorithmic decomposition
 ---
 ### Coding Style
-- Given a function declaration or definition, imporve the code using the principles we discussed in class. Proper parameter passing
+- Given a function declaration or definition, imporve the code using the principles we discussed in class. Proper parameter passing (will touch up on this)
 
 - Code is the only documentation of the design often times  
 
