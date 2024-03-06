@@ -34,20 +34,24 @@ Software Design - Definition, the two types of design (so far), where they come 
 
 Decomposition:
 Breaking a complex problem or system into a collection of smaller parts  
-
+**A lower-level approach is needed for OOP**  
 <mark>Algorithmic Decomposition</mark>:
 Breaking a complex *algorithm* into a collection of smaller algorithms  
 **How?**  
 > Start with the initial algorithm and apply algorithm decomposition recursively  
 With good design, smaller algorithms improve *modularity* which improves *maintainabiltiy* and *reusability*  
-Possible tradeoff: *efficiency*
+Possible tradeoff: *efficiency*  
 
-**A lower-level approach is needed for OOP**
-
+ 
+Rainfall: Algorithmic Decomposition
+1. Input rainfall data
+1. Calculate maximum rainfall
+1. Calculate average rainfall
+1. Output the rainfall report
 ---
 ### Structure Diagram
 ![rainfall report structure chart](structurechart.png)
-### check slide 7 + of algorithmic decomposition
+### check slide 7 + of algorithmic decomposition (add more)
 ---
 ### Coding Style
 - Given a function declaration or definition, imporve the code using the principles we discussed in class. Proper parameter passing (will touch up on this)
