@@ -148,6 +148,28 @@ Rainfall: Algorithmic Decomposition
 * No unnecessary new lines
 * Closing braces are in line correctly and the opening { is placed on the same line, etc.
 
+### Function Design
+- Given a description, create a function declaration with a proper Doxygen-style comment. Parameter passing **must** follow the coding-style rules. Similar to the Utilties exercise.
+```
+/*
+    Average of two numbers
+    @param[in] n1 First input value
+    @param[in] n2 Second input value
+    @return Average of n1 and n2
+*/
+double avg(int& n1, int& n2);
+```
+```
+/*
+    Limit the range of values within a vector 
+    @param[in, out] v1 Vector to be modified
+    @param[in] low The lower bound of the range
+    @param[in] high The upper bound of the range
+    @return Vector with ranged values 
+*/
+std::vector<int> limit(std::vector<int>& v1, int& low, int& high);
+```
+**note**: unsure if my parameters are correct for the `std::vector<int> limit(std::vector<int>& v1, int& low, int& high);`  
 
 ### Generalizing Functions
 
