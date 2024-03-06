@@ -260,23 +260,24 @@ void outputLabel(std::string_view label);
 #endif
 ```
 Various one line comments for functions
-Words to **NOT** have in function comments:
-- function
-- variable
-- integer
-- integers
-- class
-- method
-- field
-- double
-- long
-- object
-- variable
-- variables
-- contains
-- scalable
-- reusable
-- pass
+Words to **NOT** have in function comments:  
+
+> - function
+> - method
+> - variable
+> - field
+> - integer
+> - long
+> - double
+> - object
+> - integers
+> - variables
+> - contains
+> - scalable
+> - reusable
+> - pass
+
+
 ```cpp
 // Update the value at a pointer if the pointer is not null
 void updateValue(int* valuePtr, int newValue);
@@ -328,3 +329,43 @@ Correct poor names in given list
 `// noun phrase`  
 `nextArea();`  
 
+---  
+### Iterators  
+Iterators tie data structures and algorithms together  
+```cpp
+// Iterator for a container with elements of type T
+interface Iterator {
+    // Restart iteration
+    void First(); 
+    // Advance to next item
+    void Next();
+    // Are we done yet?
+    bool IsDone();
+    // Get current item
+    T CurrentItem();
+}
+```  
+Forward Iteration Only
+1. Restart iteration
+1. Advance to next item
+1. Are we done yet?
+1. Get current item
+```cpp
+    const int ARSIZE = 5;
+    int ar[ARSIZE] = { 5, 3, 2, 1, 6 };
+
+    // output ar with each value on its own line
+    for (int* p = ar; p < ar + ARSIZE; ++p)
+        std::cout << *p << '\n';
+```  
+| C-Array Pointers | Description               | C++ Iterator Term |
+|------------------|---------------------------|-------------------|
+| `int* p = ar;`   | Start at the beginning   | *initialize*      |
+| `++p`            | Advance to the next item | *increment*       |
+| `p < ar + ARSIZE`| Keep going?              | *comparison*      |
+| `*p`             | Get current item         | *dereference*     |
+
+**Use ++p(pre-increment) instead of p++(post-increment)**  
+**Use --p(post-decrement) instead of p--(post-decrement)**  
+
+---  

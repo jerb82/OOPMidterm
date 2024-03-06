@@ -17,7 +17,7 @@
 
 ### Function Design
 - [x] Given a description, create a function declaration with a proper Doxygen-style comment
-- [ ] Parameter passing follows coding-style rules
+- [x] Parameter passing follows coding-style rules
 
 ### Generalizing Functions
 - [x] Given an example function, show how to generalize it
