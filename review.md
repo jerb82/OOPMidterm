@@ -241,6 +241,23 @@ void outputLabel(std::string_view label);
 #endif
 ```
 Various one line comments for functions
+Words to **NOT** have in function comments:
+- function
+- variable
+- integer
+- integers
+- class
+- method
+- field
+- double
+- long
+- object
+- variable
+- variables
+- contains
+- scalable
+- reusable
+- pass
 ```cpp
 // Update the value at a pointer if the pointer is not null
 void updateValue(int* valuePtr, int newValue);
@@ -271,3 +288,24 @@ void swap(int& a, int& b);
 Include any needed files for .cpp and/or .hpp
 
 ---
+
+### Naming & Method Naming Standards
+Correct poor names in given list  
+**Functions are *actions***
+* camelCase, under_score  
+~~`getfullName();`~~  
+`getFullName();`  
+`garbage_collection();`  
+`check_static_allocation_size();`
+
+
+* Correct grammatical structure  
+~~`managedResourceRegister();`~~  bad structure
+`registerManagedResource();`  
+`// verb phrase`  
+`drawContentBorder();`  
+`// verb phrase with a prepositional phrase();`  
+`performTestsFromZipFile();`  
+`// noun phrase`  
+`nextArea();`  
+
