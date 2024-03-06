@@ -13,7 +13,7 @@
 
 ### Coding Style
 - [x] Given function declaration or definition, improve the code using discussed principles
-- [ ] Proper parameter passing
+- [x] Proper parameter passing
 
 ### Function Design
 - [x] Given a description, create a function declaration with a proper Doxygen-style comment

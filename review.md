@@ -53,6 +53,7 @@ Rainfall: Algorithmic Decomposition
 ![rainfall report structure chart](structurechart.png)
 ### check slide 7 + of algorithmic decomposition (add more)
 ---
+## Coding Standards  
 ### Coding Style
 - Given a function declaration or definition, imporve the code using the principles we discussed in class. Proper parameter passing (will touch up on this)
 
@@ -170,6 +171,23 @@ double avg(int& n1, int& n2);
 std::vector<int> limit(std::vector<int>& v1, int& low, int& high);
 ```
 **note**: unsure if my parameters are correct for the `std::vector<int> limit(std::vector<int>& v1, int& low, int& high);`  
+--- 
+### Parameters
+
+| Direction   | Primitive    | Object        |
+|-------------|--------------|---------------|
+| IN          | `T`          | `const T&`    |
+| OUT, IN/OUT | `T&`         | `T&`          |  
+
+**Examples:**  
+```cpp
+int n;
+const std::string& s;
+int& total;
+std::string& palindrome;
+```
+
+More on this: https://mlcollard.net/CPSC421S24/guides/Coding-Standard.html
 
 ---
 ### Generalizing Functions
