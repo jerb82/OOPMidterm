@@ -300,7 +300,7 @@ Correct poor names in given list
 
 
 * Correct grammatical structure  
-~~`managedResourceRegister();`~~  bad structure
+~~`managedResourceRegister();`~~  bad structure  
 `registerManagedResource();`  
 `// verb phrase`  
 `drawContentBorder();`  
