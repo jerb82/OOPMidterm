@@ -171,6 +171,7 @@ double avg(int& n1, int& n2);
 std::vector<int> limit(std::vector<int>& v1, int& low, int& high);
 ```
 **note**: unsure if my parameters are correct for the `std::vector<int> limit(std::vector<int>& v1, int& low, int& high);`  
+
 --- 
 ### Parameters
 
