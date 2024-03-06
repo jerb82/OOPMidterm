@@ -9,7 +9,7 @@
 - [x] Explanation of what it is and how it works
 
 ### Structure Diagram
-- [ ] Given code or description, draw diagram
+- [x] Given code or description, draw diagram
 
 ### Coding Style
 - [x] Given function declaration or definition, improve the code using discussed principles
@@ -26,7 +26,7 @@
 - [x] Include guards, header comments, function comments, separate function declarations and definitions
 
 ### Naming & Method Naming Standards
-- [ ] Correct poor names in given list
+- [x] Correct poor names in given list
 
 ### Iterator
 - [ ] Four basic operations in GoF terms and C/C++ operators
