@@ -16,14 +16,14 @@
 - [ ] Proper parameter passing
 
 ### Function Design
-- [ ] Given a description, create a function declaration with a proper Doxygen-style comment
+- [x] Given a description, create a function declaration with a proper Doxygen-style comment
 - [ ] Parameter passing follows coding-style rules
 
 ### Generalizing Functions
-- [ ] Given an example function, show how to generalize it
+- [x] Given an example function, show how to generalize it
 
 ### Physical Organization
-- [ ] Include guards, header comments, function comments, separate function declarations and definitions
+- [x] Include guards, header comments, function comments, separate function declarations and definitions
 
 ### Naming & Method Naming Standards
 - [ ] Correct poor names in given list

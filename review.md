@@ -29,7 +29,7 @@ Software Design - Definition, the two types of design (so far), where they come 
 * Reusability
 * Security
 
-
+---
 ### Algorithmic Decomposition  
 
 Decomposition:
@@ -147,7 +147,7 @@ Rainfall: Algorithmic Decomposition
 * Consistent & clear comments, indentation, spacing
 * No unnecessary new lines
 * Closing braces are in line correctly and the opening { is placed on the same line, etc.
-
+---
 ### Function Design
 - Given a description, create a function declaration with a proper Doxygen-style comment. Parameter passing **must** follow the coding-style rules. Similar to the Utilties exercise.
 ```
@@ -171,9 +171,103 @@ std::vector<int> limit(std::vector<int>& v1, int& low, int& high);
 ```
 **note**: unsure if my parameters are correct for the `std::vector<int> limit(std::vector<int>& v1, int& low, int& high);`  
 
+---
 ### Generalizing Functions
 
 * Referring to making functions applicable to more situations
 * Very related to *concerns*
 * Have to not make assumptions (okay lowkey there is a lot to talkl about here so might just have to go to the notes)
 *https://mlcollard.net/CPSC421S24/notes/Generalizing-Functions.html?section=020&index=CPSC421-020S24#/*
+
+---
+### Physical Organziation
+
+* Include guards  
+* Header comments
+* function comments
+* separate function declarations and definitions
+
+
+
+| Type              | Purpose             | Extension | Example       | Roles                  |
+|-------------------|---------------------|-----------|---------------|------------------------|
+| Include File      | Function declarations | .hpp      | Aggregate.hpp | interface concerns     |
+| Implementation File | Function definitions | .cpp      | Aggregate.cpp | implementation concerns |
+
+Separate Functions
+```cpp
+/*
+    Label.cpp
+    Implementation file for label functions.
+*/
+
+#include "Label.hpp"
+#include "pdfgen.h"
+
+// output the label
+void outputLabel(std::string_view label) {
+
+    struct pdf_info info = {
+        .creator = "My software",
+        .producer = "My software",
+        .title = "My document",
+        .author = "My name",
+        .subject = "My subject",
+        .date = "Today"
+    };
+    struct pdf_doc *pdf = pdf_create(PDF_A4_WIDTH, PDF_A4_HEIGHT, &info);
+    pdf_set_font(pdf, "Times-Roman");
+    pdf_append_page(pdf);
+    pdf_add_text(pdf, NULL, label.data(), 12, 50, 20, PDF_BLACK);
+    pdf_save(pdf, "output.pdf");
+    pdf_destroy(pdf);
+}
+```
+```cpp
+
+/*
+    Label.hpp
+    Include file for label functions.
+*/
+
+#ifndef INCLUDED_LABEL_HPP
+#define INCLUDED_LABEL_HPP
+
+#include <string_view>
+
+// output the label
+void outputLabel(std::string_view label);
+
+#endif
+```
+Various one line comments for functions
+```cpp
+// Update the value at a pointer if the pointer is not null
+void updateValue(int* valuePtr, int newValue);
+
+// Add a value to each element
+void addToElements(std::vector<int>& vec, int valueToAdd);
+
+// Concatenate two strings
+std::string concatenate(std::string_view s1, std::string_view s2);
+
+// Determine if two strings are equal
+bool equal(std::string_view s1, std::string_view s2);
+
+// Print a message to the console a specific number of times
+void printMessageNTimes(std::string_view message, int nTimes);
+
+// Area of a rectangle
+double rectangleArea(double length, double width);
+
+// Determine if a number is even
+bool isEven(int number);
+
+// Swap the values of two integers
+void swap(int& a, int& b);
+```
+#### IWYU
+**I**nclude **W**hat **Y**ou **U**se  
+Include any needed files for .cpp and/or .hpp
+
+---
