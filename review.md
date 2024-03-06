@@ -100,7 +100,7 @@ Rainfall: Algorithmic Decomposition
 
 	
 	std::swap(*begin,*right); // exchange pivot and final location
-    ``
+    
       assert(std::all_of(begin, right, [right](int n){ return n <= *right; }));
       assert(std::all_of(right, end,   [right](int n){ return n >= *right; }));`
 
@@ -149,3 +149,9 @@ Rainfall: Algorithmic Decomposition
 * Closing braces are in line correctly and the opening { is placed on the same line, etc.
 
 
+### Generalizing Functions
+
+* Referring to making functions applicable to more situations
+* Very related to *concerns*
+* Have to not make assumptions (okay lowkey there is a lot to talkl about here so might just have to go to the notes)
+*https://mlcollard.net/CPSC421S24/notes/Generalizing-Functions.html?section=020&index=CPSC421-020S24#/*
