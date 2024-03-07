@@ -367,6 +367,23 @@ Forward Iteration Only
 | `p < ar + ARSIZE`| Keep going?              | *comparison*      |
 | `*p`             | Get current item         | *dereference*     |
 
+```cpp
+std::vector<int> d{ 1, 2, 3 };
+for (auto p = d.begin(); p != d.end(); ++p)
+    std::cout << *p << '\n';
+
+std::list<int> d{ 1, 2, 3 };
+for (auto p = d.begin(); p != d.end(); ++p)
+    std::cout << *p << '\n';
+
+std::deque<int> d{ 1, 2, 3 };
+for (auto p = d.begin(); p != d.end(); ++p)
+    std::cout << *p << '\n';
+
+std::string d = "abc";
+for (auto p = d.begin(); p != d.end(); ++p)
+    std::cout << *p << '\n';
+```  
 **Use ++p(pre-increment) instead of p++(post-increment)**  
 **Use --p(post-decrement) instead of p--(post-decrement)**  
 
