@@ -35,33 +35,33 @@
 - [x] Know the terms and be able to write a free function for each stereotype
 
 ### Concerns
-- [ ] Definition
-- [ ] Separation of concerns
+- [x] Definition
+- [x] Separation of concerns
 - [ ] Able to identify concerns
 
 ### UML Sequence Diagram
-- [ ] Given a scenario, be able to draw a sequence diagram
+- [x] Given a scenario, be able to draw a sequence diagram
 
 ### XML
-- [ ] Know what is and what is not an XML concern
+- [x] Know what is and what is not an XML concern
 
 ### UML Class Diagram
-- [ ] C++ code to diagram
-- [ ] Diagram to C++ code
-- [ ] Single class only (no relationships)
+- [x] C++ code to diagram
+- [x] Diagram to C++ code
+- [x] Single class only (no relationships)
 
 ### Organizing Functions
-- [ ] Free functions in a file
-- [ ] In a namespace
-- [ ] As static methods of a class
+- [x] Free functions in a file
+- [x] In a namespace
+- [x] As static methods of a class
 
 ### Cohesion
-- [ ] Definition
+- [x] Definition
 
 ### Encapsulation and Information Hiding
-- [ ] Definition of each
-- [ ] Encapsulation rule
-- [ ] Information hiding rules
+- [x] Definition of each
+- [x] Encapsulation rule
+- [x] Information hiding rules
 
 ### Member Initialization List
 - [ ] Order of field creation

@@ -445,6 +445,143 @@ if (content[1] == '!' /* && content[0] == '<' */ &&
 empty  
 contains  
 
----
-
+---  
 ## Concerns
+Concern:
+particular set of information that affects the code of a computer program
+**We want to:**
+- *Identify* concerns  
+- *Separate* concerns  
+
+
+
+
+## XML  
+Know what is and what is not an XML concern
+- Part of data in an executable program  
+- Containers: *std::vector, std::list, std::array, c-array*  
+- Objects: struct, class  
+- Database  
+**XML Interface Concepts**  
+
+| Concept               | Attributes                              | Notes                               |
+|-----------------------|-----------------------------------------|-------------------------------------|
+| Start Document        |                                         | Occurs before parsing               |
+| XML Declaration      | *version*, *encoding*, *standalone*    | Occurs once before the root         |
+| Element Start Tag    | *qName*, *prefix*, *localName*         |                                     |
+| Element End Tag      | *qName*, *prefix*, *localName*         |                                     |
+| Characters            | *characters*                           | Includes entity references          |
+| Attribute             | *qName*, *prefix*, *localName*, *value*|                                     |
+| XML Namespace        | *prefix*, *uri*                        |                                     |
+| XML Comment           | *value*                                |                                     |
+| CDATA                | *characters*                           | Somewhat rare, and not in our data |
+| Processing Instruction | *target*, *data*                       | Rare, and not in our data           |
+| End Document          |                                         | Occurs after parsing                |
+
+## UML Class Diagrams  
+![alt text](https://yuml.me/collard/uml-diagrams.svg)  
+
+---  
+![alt text](https://yuml.me/collard/uml-class-simple.svg)
+* A static, structure diagram  
+* Name  
+* Attributes - data members/fields  
+* *perations - methods/member functions  
+
+**Visibility**
+- `+` public  
+- `-` private  
+- `#` protected  
+- `~` package  
+### Model to Code: Forward Engineering  
+![alt text](https://yuml.me/collard/yamlparser-static.svg)  
+↓↓↓↓↓↓↓↓↓↓  
+```cpp  
+class YAMLParser {
+public:
+    static bool isKey(/* ... */);
+    static void parseKey(/* ... */);
+    static bool isValue(/* ... */);
+    static void parseValue(/* ... */);
+}
+```  
+
+### Code to Model: Reverse Engineering  
+```cpp
+class Student {
+public:
+    // constructor
+    Student(const Name& name);
+
+    // name accessor
+    const Name& getName() const;
+
+    // name mutator
+    void setName(const Name& name);
+
+private:    
+    Name name;
+};
+```  
+↓↓↓↓↓↓↓↓↓↓  
+![alt text](https://yuml.me/collard/uml-class-student-good.svg)  
+
+## Organizing Functions  
+free functions in a file, in a namespace, and as static methods of a class  
+
+
+
+## Cohesion
+Cohesion:
+Degree of connectivity among the elements of a single module and in object-oriented design, a single class/object
+
+Goal of *cohesion* is to maximize internal interaction (intramural) among subelements
+
+**Types of Cohesion** (don't need to know rlly)  
+* *Informational* (best)  
+* *Functional* (best)  
+* *Sequential* (better)  
+* *Communicational* (better)  
+* *Procedural*  
+* *Temporal*  
+* *Logical*  
+* *Coincidental* (worst)  
+
+
+## Encapsulation and Information Hiding  
+Encapsulation is not information hiding, but it was adapted from information hiding  
+| Access Type | Visibility                        |
+|-------------|----------------------------------|
+| `public`    | All code                          |
+| `protected` | `class A` methods                 |
+|             | friend functions of `class A`     |
+|             | `class` derived from `class A`    |
+| `private`   | `class A` methods                 |
+|             | friend functions s of `class A`   |  
+
+### Encapsulation  
+*The bundling of data with the methods that operate on that data*  
+### Information Hiding  
+*Hide the internal representation, or state, of an object from the outside*  
+
+---
+### Encapsulation Rule  
+- Place data and the operations that perform on that data in the same class
+    - Don't make the client tie data and operations together  
+    - Provide it in one class (or the fewest number of classes needed)  
+    - Improves the class cohesion  
+
+### Information Hiding Rules
+
+1. Don't expose data items
+1. Don't expose the difference between stored data and derived data  
+    - Use get method names for property names  
+get method names: `speed()`, `getSpeed()`  
+property method names:  
+  ~~`calculateS`~~`speed()`, ~~`determineS`~~`speed()`  
+3. Don't expose implementation details of a class
+1. Don't expose a class's internal structure
+
+
+### Member Initialization List
+
