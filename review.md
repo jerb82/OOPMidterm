@@ -529,6 +529,140 @@ private:
 ## Organizing Functions  
 free functions in a file, in a namespace, and as static methods of a class  
 
+### Free functions
+A function that is not a member of a class  
+- Useful for algorithms performed on the parameters  
+- All IN data is from a value or const reference parameter  
+- All OUT data is from a reference parameter or the return value  
+- Does not save state between calls  
+- Typically group (or organized) by file, e.g., xml_parser.hpp  
+
+When there are multiple functions creating conflicting names, can put prefixes infront to specify like so: 
+- Prior to prefixes:
+    ```cpp
+        // pdf_parser.hpp
+        std::string parse(std::string_view filename);
+        // yaml_parser.hpp
+        std::string parse(std::string_view filename);
+      ```
+
+```cpp
+// pdf_parser.hpp
+std::string pdf_parse(std::string_view filename);
+
+// yaml_parser.hpp
+std::string yaml_parse(std::string_view filename);
+
+// main.cpp
+#include <iostream>
+#include <string>
+#include <filesystem>
+#include <pdf_parser.hpp>
+#include <yaml_parser.hpp>
+
+int main(int argc, char* argv[]) {
+
+    std::filesystem::path filePath(argv[1]);
+
+    // parse the input depending on the file type   
+    if (filePath.extension() == '.pdf') {
+        // parse pdf file
+        std::cout << pdf_parse(argv[1]) << '\n';
+    } else {
+        // parse yaml file
+        std::cout << yaml_parse(argv[1]) << '\n';
+    }   
+    
+    return 0;
+}
+// pdf_parser.hpp
+std::string pdf_parse(std::string_view filename);
+
+// yaml_parser.hpp
+std::string yaml_parse(std::string_view filename);
+
+// main.cpp
+#include <iostream>
+#include <string>
+#include <filesystem>
+#include <pdf_parser.hpp>
+#include <yaml_parser.hpp>
+
+int main(int argc, char* argv[]) {
+
+    std::filesystem::path filePath(argv[1]);
+
+    // parse the input depending on the file type   
+    if (filePath.extension() == '.pdf') {
+        // parse pdf file
+        std::cout << pdf_parse(argv[1]) << '\n';
+    } else {
+        // parse yaml file
+        std::cout << yaml_parse(argv[1]) << '\n';
+    }   
+    
+    return 0;
+}
+```
+### Namespaces  
+But a better way is using namespaces:
+-  A language feature to group functions and provide an organizing name
+* Can contain:  
+free functions  
+variables  
+classes  
+typedef  
+
+```cpp
+// pdf_parser.h
+namespace PDFParser {
+    std::string parse(std::string_view filename);
+}
+
+// yaml_parser.h
+namespace YAMLParser {
+    std::string parse(std::string_view filename);
+}
+
+// main.cpp
+#include <iostream>
+#include <string>
+#include <filesystem>
+#include <pdf_parser.hpp>
+#include <yaml_parser.hpp>
+
+int main(int argc, char* argv[]) {
+
+    std::filesystem::path filePath(argv[1]);
+
+    // parse the input depending on the file type   
+    if (filePath.extension() == '.pdf') {
+        // parse pdf file
+        std::cout << PDFParser::parse(argv[1]) << '\n';
+    } else {
+        // parse yaml file
+        std::cout << YAMLParser::parse(argv[1]) << '\n';
+    }   
+    
+    return 0;
+}
+```  
+### Static Method  
+- static class methods do not have access to data members/fields  
+- They do have access to static data members/fields  
+- No advantage over namespaces, except that it may be joined with non-static member functions  
+```cpp
+class PDFParser {
+public:
+    static std::string parse(std::string_view filename);
+};
+
+class YAMLParser {
+public:
+    static std::string parse(std::string_view filename);
+};
+```
+
 
 
 ## Cohesion
@@ -584,4 +718,6 @@ property method names:
 
 
 ### Member Initialization List
+
+Order of field creation, proper use of member initialization list
 
