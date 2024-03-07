@@ -385,7 +385,7 @@ for (auto p = d.begin(); p != d.end(); ++p)
     std::cout << *p << '\n';
 ```  
 **Use ++p(pre-increment) instead of p++(post-increment)**  
-**Use --p(post-decrement) instead of p--(post-decrement)**  
+**Use --p(pre-decrement) instead of p--(post-decrement)**  
 
 ---  
 ## Free-Function Stereotypes  
