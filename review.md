@@ -720,4 +720,21 @@ property method names:
 ### Member Initialization List
 
 Order of field creation, proper use of member initialization list
+```cpp
+class A {
+public:
+    A()
+        : b(0), b2(1)
+    {}
 
+private:
+    B b;
+    B2 b2;
+};
+```
+- Part of the constructor  
+- Often ignored until after it is needed  
+- The only way that we can control what constructor is called for the fields of the class  
+- Syntax is a little strange but necessary  
+
+Constructors are called in the order they appear in the class definition
