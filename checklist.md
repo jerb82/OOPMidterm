@@ -29,10 +29,10 @@
 - [x] Correct poor names in given list
 
 ### Iterator
-- [ ] Four basic operations in GoF terms and C/C++ operators
+- [x] Four basic operations in GoF terms and C/C++ operators
 
 ### Free-Function Stereotypes
-- [ ] Know the terms and be able to write a free function for each stereotype
+- [x] Know the terms and be able to write a free function for each stereotype
 
 ### Concerns
 - [ ] Definition

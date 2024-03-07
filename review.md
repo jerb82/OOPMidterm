@@ -1,6 +1,6 @@
 # Midterm Review
 
-###  Software Design
+##  Software Design
 Software Design - Definition, the two types of design (so far), where they come from, what they are concerned with
 
 **There are many definitions**
@@ -13,7 +13,7 @@ Software Design - Definition, the two types of design (so far), where they come 
 #### *Object-oriented design*
 - From object-oriented programming  
 ---
-### Software Design Characteristics
+## Software Design Characteristics
 - Might need to know stuff about each..? I hope not
 
 * Compatibility
@@ -30,7 +30,7 @@ Software Design - Definition, the two types of design (so far), where they come 
 * Security
 
 ---
-### Algorithmic Decomposition  
+## Algorithmic Decomposition  
 
 Decomposition:
 Breaking a complex problem or system into a collection of smaller parts  
@@ -49,7 +49,7 @@ Rainfall: Algorithmic Decomposition
 1. Calculate average rainfall
 1. Output the rainfall report
 ---
-### Structure Diagram
+## Structure Diagram
 ![rainfall report structure chart](structurechart.png)
 ### check slide 7 + of algorithmic decomposition (add more)
 ---
@@ -113,7 +113,6 @@ Rainfall: Algorithmic Decomposition
 **corrected:**
 ### **Consistent, Scalable, Maintainable**
 
-
     // pivot value is the first element
     auto value = *begin;
 
@@ -145,11 +144,12 @@ Rainfall: Algorithmic Decomposition
     assert(std::all_of(begin, right, [right](int n){ return n <= *right; }));
     assert(std::all_of(right, end,   [right](int n){ return n >= *right; }));
 
+
 * Consistent & clear comments, indentation, spacing
 * No unnecessary new lines
 * Closing braces are in line correctly and the opening { is placed on the same line, etc.
 ---
-### Function Design
+## Function Design
 - Given a description, create a function declaration with a proper Doxygen-style comment. Parameter passing **must** follow the coding-style rules. Similar to the Utilties exercise.
 ```
 /*
@@ -191,7 +191,7 @@ std::string& palindrome;
 More on this: https://mlcollard.net/CPSC421S24/guides/Coding-Standard.html
 
 ---
-### Generalizing Functions
+## Generalizing Functions
 
 * Referring to making functions applicable to more situations
 * Very related to *concerns*
@@ -199,7 +199,7 @@ More on this: https://mlcollard.net/CPSC421S24/guides/Coding-Standard.html
 *https://mlcollard.net/CPSC421S24/notes/Generalizing-Functions.html?section=020&index=CPSC421-020S24#/*
 
 ---
-### Physical Organziation
+## Physical Organziation
 
 * Include guards  
 * Header comments
@@ -214,7 +214,7 @@ More on this: https://mlcollard.net/CPSC421S24/guides/Coding-Standard.html
 | Implementation File | Function definitions | .cpp      | Aggregate.cpp | implementation concerns |
 
 Separate Functions
-```cpp
+```cpp  
 /*
     Label.cpp
     Implementation file for label functions.
@@ -309,7 +309,7 @@ Include any needed files for .cpp and/or .hpp
 
 ---
 
-### Naming & Method Naming Standards
+## Naming & Method Naming Standards
 Correct poor names in given list  
 **Functions are *actions***
 * camelCase, under_score  
@@ -330,8 +330,9 @@ Correct poor names in given list
 `nextArea();`  
 
 ---  
-### Iterators  
+## Iterators  
 Iterators tie data structures and algorithms together  
+**Gang of Four (GoF)**  
 ```cpp
 // Iterator for a container with elements of type T
 interface Iterator {
@@ -350,7 +351,7 @@ Forward Iteration Only
 1. Advance to next item
 1. Are we done yet?
 1. Get current item
-```cpp
+```cpp  
     const int ARSIZE = 5;
     int ar[ARSIZE] = { 5, 3, 2, 1, 6 };
 
@@ -369,3 +370,81 @@ Forward Iteration Only
 **Use --p(post-decrement) instead of p--(post-decrement)**  
 
 ---  
+## Free-Function Stereotypes  
+
+* Mutator::command  
+* Accessor::property  
+* Accessor::predicate 
+
+### Mutator::command 
+```cpp  
+void order(int&, int&);
+
+void sort(std::vector<int>& v);
+
+void sort(std::vector<int>::iterator begin,
+          std::vector<int>::iterator end);
+
+void remove(std::vector<int>& v,
+            int value);
+```
+
+- Executes a change based on the IN/OUT parameters  
+- For data the function *changes*, parameters are *IN/OUT or OUT*  
+- These parameters are *pass by reference* (**not** pass by const reference)    
+- Other parameters may be IN  
+
+### Accessor::property  
+```cpp  
+int average(int, int);
+
+double pay(int hours, double rate);
+
+std::vector<int>::const_iterator search(
+    const std::vector<int>& v,
+    int value);
+
+std::vector<int>::const_iterator search(
+    std::vector<int>::const_iterator begin,
+    std::vector<int>::const_iterator end,
+    int value);
+```  
+- Returns information derived from the IN parameters
+- Parameters are *pass by value* or *pass by const reference*
+- When iterators are used, *pass by value of const_iterator*
+
+### Accessr::predicate
+```cpp  
+bool isValidFilename(std::string_view filename);
+
+bool isStartTag(std::string::const_iterator cursor);
+
+bool contains(const std::vector<double>& v,
+              double value);
+
+bool contains(
+    std::vector<double>::const_iterator begin,
+    std::vector<double>::const_iterator end
+    double value);
+```
+
+- Returns a Boolean result derived from the IN parameter  
+- Parameters are **all** *IN*  
+- Must pass all data directly used in the condition  
+- Useful for even short conditions as it gives them a name  
+- Often extracted from code with complex conditional statements:  `
+if (content[1] == '!' /* && content[0] == '<' */ && 
+    content[2] == '[' && content[3] == 'C' && 
+    content[4] == 'D' && content[5] == 'A' && 
+    content[6] == 'T' && content[7] == 'A' && 
+    content[8] == '[') {
+}`  
+- Want to hide the details on how the predicate is determined so we keep these in here  
+- If not a standard term, then verb form often starts with *is*, but can also be *has* etc. (all verbs)  
+* Standard Terms  
+empty  
+contains  
+
+---
+
+## Concerns
