@@ -64,5 +64,5 @@
 - [x] Information hiding rules
 
 ### Member Initialization List
-- [ ] Order of field creation
-- [ ] Proper use of member initialization list
+- [x] Order of field creation
+- [x] Proper use of member initialization list
