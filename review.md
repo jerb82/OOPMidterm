@@ -9,9 +9,10 @@ Software Design - Definition, the two types of design (so far), where they come 
 **Two layers of design**
 #### *Structured design*
 - From structured programming
-
+What are the *functions*?  
 #### *Object-oriented design*
 - From object-oriented programming  
+What are the *classes*?  
 ---
 ## Software Design Characteristics
 - Might need to know stuff about each..? I hope not
