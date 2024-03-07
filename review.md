@@ -8,7 +8,7 @@ Software Design - Definition, the two types of design (so far), where they come 
 
 **Two layers of design**
 #### *Structured design*
-- From structured programming
+- From structured programming  
 What are the *functions*?  
 #### *Object-oriented design*
 - From object-oriented programming  
@@ -433,13 +433,15 @@ bool contains(
 - Parameters are **all** *IN*  
 - Must pass all data directly used in the condition  
 - Useful for even short conditions as it gives them a name  
-- Often extracted from code with complex conditional statements:  `
-if (content[1] == '!' /* && content[0] == '<' */ && 
-    content[2] == '[' && content[3] == 'C' && 
-    content[4] == 'D' && content[5] == 'A' && 
-    content[6] == 'T' && content[7] == 'A' && 
+- Often extracted from code with complex conditional statements:
+```cpp
+if (content[1] == '!' /* && content[0] == '<' */ &&  
+    content[2] == '[' && content[3] == 'C' &&  
+    content[4] == 'D' && content[5] == 'A' &&  
+    content[6] == 'T' && content[7] == 'A' &&  
     content[8] == '[') {
-}`  
+}
+```  
 - Want to hide the details on how the predicate is determined so we keep these in here  
 - If not a standard term, then verb form often starts with *is*, but can also be *has* etc. (all verbs)  
 * Standard Terms  
@@ -449,7 +451,7 @@ contains
 ---  
 ## Concerns
 Concern:
-particular set of information that affects the code of a computer program
+particular set of information that affects the code of a computer program  
 **We want to:**
 - *Identify* concerns  
 - *Separate* concerns  
@@ -739,3 +741,5 @@ private:
 - Syntax is a little strange but necessary  
 
 Constructors are called in the order they appear in the class definition
+
+![initialization with constructor](memberinit.png)
